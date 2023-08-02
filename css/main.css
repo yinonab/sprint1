@@ -1,3 +1,4 @@
+
 body {
     background: #111;
     text-align: center;
@@ -26,9 +27,17 @@ footer {
 .shown{
     background: linear-gradient(to top,  black, rgb(34, 172, 48));
 }
-
+.live{
+    /* width: 150px;
+    height: 50px; */
+    color: blanchedalmond;
+}
+.restart{
+    width: 150px;
+    height: 40px;
+    margin-bottom: 15px;
+}
 .board {
-    width: 600px;
     margin: auto;
 }
 
@@ -36,16 +45,16 @@ footer {
 .cell {
     color: red;
     background: rgb(46, 45, 45);
-    width: 80px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 7px;
     
     /* border: 1px solid gray; */
 }
 .cellRevile {
     background: rgb(244, 240, 240);
-    width: 80px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 7px;
     /* border: 1px solid gray; */
 }
