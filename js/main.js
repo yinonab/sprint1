@@ -87,7 +87,7 @@ function checkGameOver() {
     if (gMinesCount === 0) {
         updateRestButton('You Lose !! 😡')
     }
-    else if (gGame.shownCount === 14 && gGame.markedCount === 2) {
+    else if (gGame.shownCount === 14 && gGame.markedCount === 2||gGame.shownCount === 15 && gGame.markedCount === 1) {
         updateRestButton('You Win !! 👑')
     }
     // var elModal = document.querySelector('.modal')
