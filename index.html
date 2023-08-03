@@ -11,14 +11,22 @@
 <body onload="onInit()">
     <table class="board">
         <!-- <tbody class="board-cells"> -->
-            <p class="live">Live :2 </p>
+            <div>
+                <p class="live"></p>
+                <p class="live">SCORE IS : </p>
+            </div>
             <!-- <div class="modal hiden">
                 <button onclick="playAgain()">Play Again</button>
             </div> -->
-            <button class="restart" onclick="RestartGame()">😋</button>
-
-        <!-- </tbody> -->
-    </table>
+            <div>
+                <button class="level" onclick="increaseLevel()">INCREASE LEVEL</button>
+                <button class="restart" onclick="RestartGame()">😋</button>
+                <button class="level" onclick="decreaseLevel()">DECREASE LEVEL</button>
+            </div>
+            
+            <!-- </tbody> -->
+        </table>
+        <p class="timer">00:00</p>
     <footer>
         <p>Yinon Abarjel</p>
     </footer>

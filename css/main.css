@@ -11,7 +11,7 @@ table {
     background: rgb(159, 208, 213);
 }
 footer {
-    position: fixed;
+    position: block;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -28,25 +28,46 @@ footer {
     background: linear-gradient(to top,  black, rgb(34, 172, 48));
 }
 .live{
-    /* width: 150px;
-    height: 50px; */
-    color: blanchedalmond;
+    display: inline-block;
+    border: 4px rgb(159, 193, 74) solid;
+    color: rgb(159, 193, 74);
+    font-weight: bold;
+    font-style: oblique;
+    font-size: larger;
+    padding: 10px;
 }
 .restart{
-    width: 150px;
-    height: 40px;
-    margin-bottom: 15px;
+    background: rgb(202, 157, 157);
+    width: 170px;
+    height: 50px;
+    border-radius: 7px;
+    margin-bottom: 15PX;
+    font-size: large;
+    font-weight: bold;
+}
+.mines{
+    color: blanchedalmond;
 }
 .board {
     margin: auto;
 }
+.timer{
+    display: inline-flex;
+    border: 4px rgb(172, 52, 28) solid;
+    color: rgb(172, 52, 28);
+    font-weight: bold;
+    font-style: oblique;
+    font-size: xx-large;
+    padding: 17px;
+}
 
 
 .cell {
-    color: red;
+    color:  rgb(46, 45, 45);
+    color:  rgb(46, 45, 45);
     background: rgb(46, 45, 45);
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 7px;
     
     /* border: 1px solid gray; */
@@ -61,11 +82,20 @@ footer {
 .marked {
     background: linear-gradient(to top,  black,  red);
 }
-.cell:hover {
+/* .cell:hover {
     background: linear-gradient(to top,  rgb(203, 175, 175), rgb(247, 242, 242));
     cursor: po;
+} */
+.level{
+    background: rgb(202, 157, 157);
+    width: 170px;
+    height: 50px;
+    border-radius: 7px;
+    margin-bottom: 5PX;
+    font-size: medium;
+    font-weight: bold;
+    font-style: unset;
 }
-
 .popup {
     background-color: orange;
     padding: 20px;
