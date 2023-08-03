@@ -21,6 +21,16 @@ footer {
 .mine{
     background: linear-gradient(to top,  black, orange);
 }
+.savedTime{
+    margin-left: 500px;
+    margin-right: 500px;
+    border: 4px rgb(159, 193, 74) solid;
+    color: rgb(159, 193, 74);
+    font-weight: bold;
+    font-style: oblique;
+    font-size: larger;
+    padding: 10px;
+}
 .hiden{
     display: none;
 }
@@ -36,6 +46,7 @@ footer {
     font-size: larger;
     padding: 10px;
 }
+
 .restart{
     background: rgb(202, 157, 157);
     width: 170px;
@@ -52,7 +63,8 @@ footer {
     margin: auto;
 }
 .timer{
-    display: inline-flex;
+    border-radius: 50%;
+    display: inline-block;
     border: 4px rgb(172, 52, 28) solid;
     color: rgb(172, 52, 28);
     font-weight: bold;
