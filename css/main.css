@@ -1,6 +1,6 @@
 
 body {
-    background: #111;
+    background: #7bcad6;
     text-align: center;
     font-size: xx-large;
     font-weight: bold;
@@ -22,10 +22,12 @@ footer {
     background: linear-gradient(to top,  black, orange);
 }
 .savedTime{
-    margin-left: 500px;
-    margin-right: 500px;
-    border: 4px rgb(159, 193, 74) solid;
-    color: rgb(159, 193, 74);
+    width: 400px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    /* border: 4px rgb(30, 30, 29) solid; */
+    color: rgb(204, 30, 30);
     font-weight: bold;
     font-style: oblique;
     font-size: larger;
@@ -39,15 +41,27 @@ footer {
 }
 .live{
     display: inline-block;
-    border: 4px rgb(159, 193, 74) solid;
-    color: rgb(159, 193, 74);
+    border: 4px rgb(30, 30, 29) solid;
+    color: rgb(204, 30, 30);
     font-weight: bold;
     font-style: oblique;
     font-size: larger;
     padding: 10px;
 }
+.timebutton{
+    border: 4px double  rgb(5, 5, 5);
+    background: rgb(202, 157, 157);
+    width: 170px;
+    height: 50px;
+    border-radius: 7px;
+    font-size: medium;
+    font-weight: bold;
+    font-style: unset;
+}
 
 .restart{
+    border: 4px double  rgb(5, 5, 5);
+    background: rgb(202, 157, 157);
     background: rgb(202, 157, 157);
     width: 170px;
     height: 50px;
@@ -63,14 +77,13 @@ footer {
     margin: auto;
 }
 .timer{
-    border-radius: 50%;
     display: inline-block;
-    border: 4px rgb(172, 52, 28) solid;
-    color: rgb(172, 52, 28);
+    border: 4px rgb(30, 30, 29) solid;
+    color: rgb(204, 30, 30);
     font-weight: bold;
     font-style: oblique;
-    font-size: xx-large;
-    padding: 17px;
+    font-size: larger;
+    padding: 10px;
 }
 
 
@@ -99,6 +112,7 @@ footer {
     cursor: po;
 } */
 .level{
+    border: 4px double  rgb(5, 5, 5);
     background: rgb(202, 157, 157);
     width: 170px;
     height: 50px;

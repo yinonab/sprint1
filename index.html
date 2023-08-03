@@ -11,19 +11,18 @@
 <body onload="onInit()">
     <table class="board">
         <!-- <tbody class="board-cells"> -->
-        <div>  
-            <p class="timer">00:00</p>
-            <p class="savedTime" id="savedTime">Saved Time: <span id="savedTimeValue">Not saved</span></p>
-            <button class="clearStorageButton">Clear Storage</button>
-            <button class="startButton">Start Timer</button>
-            <button class="stopButton">Stop Timer</button>
-            <button class="resetButton">Reset Timer</button>  
+        <div>
+            <button class="clearStorageButton timebutton">Clear Storage</button>
+            <button class="startButton timebutton">Start Timer</button>
+            <button class="stopButton timebutton">Stop Timer</button>
+            <button class="resetButton timebutton">Reset Timer</button>
         </div>
-        <!-- <p id="savedTime">The Best time is : </p>
-        <p id="timer">00:00</p> -->
+        <div>
+            <p class="savedTime" id="savedTime">Saved Time: <span id="savedTimeValue">Not saved</span></p>
+        </div>
         <div>
             <p class="live"></p>
-            <p class="live">SCORE IS : </p>
+            <p class="timer"> SCORE IS :00:00</p>
         </div>
         <!-- <div class="modal hiden">
                 <button onclick="playAgain()">Play Again</button>

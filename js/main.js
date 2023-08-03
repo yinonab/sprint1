@@ -126,10 +126,8 @@ function checkGameOver() {
         gGame.isOn = false
         stopTimer()
         resetTimer()
-
-
     }
-    else if (gGame.shownCount - gGame.markedCount === gLevel.SIZE ** 2 - gLevel.MINES) {
+    else if (gGame.shownCount - gGame.markedCount === gLevel.SIZE ** 2 ||gGame.shownCount + gGame.markedCount === gLevel.SIZE ** 2 ) {
         updateRestButton('You Win !! 👑')
         gGame.isOn = false
         stopTimerAndSave()
@@ -140,12 +138,19 @@ function checkGameOver() {
 function CellMarked(event, elcell, i, j) {
     event.preventDefault();
     var currCell = gBoard[elcell.dataset.i][elcell.dataset.j]
-    if (currCell.isShown || currCell.isMarked) return
-    updateMarkedCount(1)
-    console.log('gGame.markedCount:', gGame.markedCount)
-    currCell.isMarked = true
-    elcell.innerText = FLAG
-    checkGameOver()
+    if (currCell.isShown ) return
+    if (currCell.isMarked === true) {
+        updateMarkedCount(0)
+        currCell.isMarked = false
+        elcell.innerText = ''
+        console.log('gGame.markedCount:', gGame.markedCount)
+    } else if (currCell.isMarked === false) {
+        updateMarkedCount(1)
+        console.log('gGame.markedCount:', gGame.markedCount)
+        currCell.isMarked = true
+        elcell.innerText = FLAG
+        checkGameOver()
+    }
 }
 
 function onCellClicked(elCell, i, j) {
@@ -287,8 +292,8 @@ function addMines() {
     }
 }
 function updateMarkedCount(num) {
-    gGame.markedCount += num
-
+    if (num>0)gGame.markedCount += num
+    else gGame.markedCount-=1
 }
 function updateShownCount(num) {
     gGame.shownCount += num
@@ -315,7 +320,7 @@ function updateMines(gMinesCount) {
 var currentTime = 0;
 var timerInterval;
 var timerRunning = false;
-var savedTime = localStorage.getItem("savedTime"); 
+var savedTime = localStorage.getItem("savedTime");
 
 const timerElement = document.querySelector('.timer');
 const startButton = document.querySelector('.startButton');
@@ -325,61 +330,60 @@ const clearStorageButton = document.querySelector('.clearStorageButton');
 const savedTimeElement = document.getElementById("savedTimeValue"); // Update the saved time value
 
 function updateTimer() {
-  const minutes = Math.floor(currentTime / 60);
-  const seconds = currentTime % 60;
-  timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-  currentTime++;
+    const minutes = Math.floor(currentTime / 60);
+    const seconds = currentTime % 60;
+    timerElement.textContent = `SCORE IS :${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    currentTime++;
 }
 function resetTimer() {
     clearInterval(timerInterval);
     timerRunning = false;
     currentTime = 0;
-    timerElement.textContent = "00:00"; // Reset the timer display
-  }
-  function clearLocalStorage() {
+    timerElement.textContent = " SCORE IS : 00:00"; // Reset the timer display
+}
+function clearLocalStorage() {
     localStorage.clear();
     savedTime = null;
     savedTimeElement.textContent = "Not saved"; // Reset saved time display
-  }
-  
+}
+
 
 function startTimer() {
-  if (!timerRunning) {
-    clearInterval(timerInterval);
-    timerInterval = setInterval(updateTimer, 1000);
-    timerRunning = true;
-  }
+    if (!timerRunning) {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(updateTimer, 1000);
+        timerRunning = true;
+    }
 }
 
 function stopTimerAndSave() {
-  clearInterval(timerInterval);
-  timerRunning = false;
-  saveTime();
+    clearInterval(timerInterval);
+    timerRunning = false;
+    saveTime();
 }
 function stopTimer() {
     clearInterval(timerInterval);
     timerRunning = false;
-  }
+}
 function saveTime() {
     // If there's no saved time or the new time is shorter, update the saved time
     if (savedTime === null || currentTime < savedTime) {
-      savedTime = currentTime;
-      localStorage.setItem("savedTime", savedTime);
+        savedTime = currentTime;
+        localStorage.setItem("savedTime", savedTime);
     }
     savedTimeElement.textContent = `${savedTime} seconds`; // Update saved time display
-  }
-  
-  startButton.addEventListener("click", startTimer);
-  stopButton.addEventListener("click", stopTimerAndSave);
-  resetButton.addEventListener("click", resetTimer);
-  clearStorageButton.addEventListener("click", clearLocalStorage);
+}
+
+startButton.addEventListener("click", startTimer);
+stopButton.addEventListener("click", stopTimerAndSave);
+resetButton.addEventListener("click", resetTimer);
+clearStorageButton.addEventListener("click", clearLocalStorage);
 
 
-  
-  // Automatically start the timer when the page loads
-  
-  // Load saved time and update display
-  if (savedTime !== null) {
+
+// Automatically start the timer when the page loads
+
+// Load saved time and update display
+if (savedTime !== null) {
     savedTimeElement.textContent = `${savedTime} seconds`;
-  }
-  
+}
