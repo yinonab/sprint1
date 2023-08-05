@@ -113,6 +113,7 @@ function RestartGame() {
 }
 function checkGameOver() {
     if (gMinesNumbers === 0) {
+        playSound('game-over.mp3')
         var elLose=document.querySelector('.lose')
         elLose.classList.remove('hiden')
                 setTimeout(() => {
@@ -124,6 +125,7 @@ function checkGameOver() {
         resetTimer()
     }
     else if (gGame.shownCount - gGame.markedCount === gLevel.SIZE ** 2 || gGame.shownCount + gGame.markedCount === gLevel.SIZE ** 2) {
+        playSound('success.mp3')
         var elLose=document.querySelector('.win')
         elLose.classList.remove('hiden')
                 setTimeout(() => {
@@ -156,11 +158,10 @@ function onCellClicked(elCell, i, j) {
     var currCell = gBoard[elCell.dataset.i][elCell.dataset.j]
     elCell.style.backgroundColor = "white"
     if (gGame.shownCount === 0 && gGame.secsPassed === 0) {
+        elCell.innerText = '❤'
         playSound('pop.wav')
         startTimer()
-        gGame.shownCount += 1
         // debugger
-        elCell.innerText = '❤'
         // updateShownCount(1)
         console.log('gGame.markedCount:', gGame.markedCount)
         console.log('gGame.shownCount:', gGame.shownCount)
@@ -183,6 +184,7 @@ function onCellClicked(elCell, i, j) {
         updateSecsPassed(1)
         // updateShownCount(1)
         currCell.isShown = true
+        gGame.shownCount += 1
     }
     else if (!currCell.isMine) {
         playSound('pop.wav')
