@@ -22,3 +22,6 @@ function getRandomIntInclusive(min, max) {
 function disableRightClick() {
     window.addEventListener("contextmenu", e => e.preventDefault());
 }
+function shuffleArray(array) {
+    array.sort((a, b) => 0.5 - Math.random());
+}

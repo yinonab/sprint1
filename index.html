@@ -12,29 +12,32 @@
     <table class="board">
         <!-- <tbody class="board-cells"> -->
         <div>
-            <button class="clearStorageButton timebutton">Clear Storage</button>
-            <button class="startButton timebutton">Start Timer</button>
-            <button class="stopButton timebutton">Stop Timer</button>
-            <button class="resetButton timebutton">Reset Timer</button>
+            <button class="clearStorageButton timebutton"></button>
+            <button style="display: none;" class="startButton timebutton">Start Timer</button>
+            <button style="display: none;" class="stopButton timebutton">Stop Timer</button>
+            <button class="resetButton timebutton"></button>
         </div>
-        <div>
-            <p class="savedTime" id="savedTime">Saved Time: <span id="savedTimeValue">Not saved</span></p>
-        </div>
-        <div>
+        <div class="boardGame">
             <p class="live"></p>
             <p class="timer"> SCORE IS :00:00</p>
         </div>
         <!-- <div class="modal hiden">
-                <button onclick="playAgain()">Play Again</button>
-            </div> -->
+            <button onclick="playAgain()">Play Again</button>
+        </div> -->
         <div>
-            <button class="level" onclick="increaseLevel()">INCREASE LEVEL</button>
-            <button class="restart" onclick="RestartGame()">😋</button>
-            <button class="level" onclick="decreaseLevel()">DECREASE LEVEL</button>
+            <button class="levelinc" onclick="increaseLevel()"></button>
+            <button class="restart" onclick="RestartGame()"></button>
+            <button class="leveldec" onclick="decreaseLevel()"></button>
         </div>
-
+        <div class="win hiden"></div>
+        <div class="lose hiden"></div>
+        <button class="termin" onclick="removeMines()"></button>
+        
         <!-- </tbody> -->
     </table>
+    <div>
+        <p class="savedTime" id="savedTime">Best Time is : <span id="savedTimeValue">Not saved</span></p>
+    </div>
     <footer>
         <p>Yinon Abarjel</p>
     </footer>
