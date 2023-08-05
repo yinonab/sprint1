@@ -156,6 +156,7 @@ function onCellClicked(elCell, i, j) {
     var currCell = gBoard[elCell.dataset.i][elCell.dataset.j]
     elCell.style.backgroundColor = "white"
     if (gGame.shownCount === 0 && gGame.secsPassed === 0) {
+        playSound('pop.wav')
         startTimer()
         gGame.shownCount += 1
         // debugger
@@ -184,16 +185,17 @@ function onCellClicked(elCell, i, j) {
         currCell.isShown = true
     }
     else if (!currCell.isMine) {
+        playSound('pop.wav')
         gGame.shownCount += 1
         // updateSecsPassed(1)
         // updateShownCount(1)
         // currCell.isShown = true
-
         i = +elCell.dataset.i
         j = +elCell.dataset.j
         colorMinesNegsAround(gBoard, i, j)
     }
     else if (currCell.isMine) {
+        playSound('boom.wav')
         gGame.shownCount += 1
         gMinesNumbers--
         updateScore(gMinesNumbers)
@@ -295,7 +297,7 @@ function getMineCell(board) {
     return minePoses[getRandomIntInclusive(0, minePoses.length - 1)]
 }
 function removeMine(board) {
-
+    playSound('back.mp3')
     // for (var i = 0; i < 3; i++) {
     var mineCell = getMineCell(board)
     console.log('mineCell:', mineCell)

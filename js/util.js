@@ -25,3 +25,7 @@ function disableRightClick() {
 function shuffleArray(array) {
     array.sort((a, b) => 0.5 - Math.random());
 }
+function playSound(txt) {
+	const sound = new Audio(txt)
+	sound.play()
+}
