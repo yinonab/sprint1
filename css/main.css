@@ -122,7 +122,7 @@ footer {
     background-color: rgb(95, 61, 20);
 }
 .leveldec{
-    background-image: url('rounded-grey-plus-button-icon-original.svg');
+    background-image: url('rounded-grey-minus-button-icon-original.svg');
     width: 100px;
     height: 100px;
     border-radius: 20%;
