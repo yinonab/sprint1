@@ -163,19 +163,7 @@ function onCellClicked(elCell, i, j) {
         console.log('gGame.markedCount:', gGame.markedCount)
         console.log('gGame.shownCount:', gGame.shownCount)
         addMines()
-        for (var i = 0; i < gBoard.length; i++) {
-            for (var j = 0; j < gBoard[0].length; j++) {
-                var elInCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`)
-                i = +elInCell.dataset.i
-                j = +elInCell.dataset.j
-                var mine = gBoard[i][j]
-                var nigNum = setMinesNegsCount(gBoard, i, j)
-                if (nigNum > 0 && mine.isMine === false) {
-                    elInCell.minesAroundCount = nigNum
-                    elInCell.innerText = nigNum
-                }
-            }
-        }
+        calculateNegs(gBoard)
         updateSecsPassed(1)
         currCell.isShown = true
         gGame.shownCount += 1
@@ -286,6 +274,9 @@ function removeMine(board) {
     var mini = document.querySelector(`[data-i="${mineCell.i}"][data-j="${mineCell.j}"]`)
     mini.innerText = ''
     console.log('m', mini)
+    calculateNegs(gBoard)
+}
+function calculateNegs(board){
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board[0].length; j++) {
             var elInCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`)
