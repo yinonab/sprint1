@@ -17,8 +17,7 @@ var gGame = {
     secsPassed: 0
 }
 var gMinesNumbers = gLevel.MINES
-var gMarkedCount = 0
-var gShownCount = 0
+// var gShownCount = 0
 var gBoardCells = gLevel.SIZE ** 2
 
 
@@ -26,7 +25,7 @@ var gBoardCells = gLevel.SIZE ** 2
 function onInit() {
     stopTimer()
     gGame.isOn = true
-    gShownCount = 0
+    // gShownCount = 0
     gBoard = createBoard()
     renderBoard()
     updateScore(gMinesNumbers)
@@ -94,7 +93,7 @@ function decreaseLevel() {
     gLevel.SIZE -= 1
     gLevel.MINES -= 1
     // updateRestButton('😀')
-    gShownCount = 0
+    // gShownCount = 0
     gMinesNumbers = gLevel.MINES
     updateScore(gMinesNumbers)
     onInit()
@@ -106,7 +105,7 @@ function RestartGame() {
     gGame.shownCount = 0
     gGame.secsPassed = 0
     // updateRestButton('😀')
-    gShownCount = 0
+    // gShownCount = 0
     gMinesNumbers = gLevel.MINES
     updateScore(gMinesNumbers)
     onInit()
@@ -161,8 +160,6 @@ function onCellClicked(elCell, i, j) {
         elCell.innerText = '❤'
         playSound('pop.wav')
         startTimer()
-        // debugger
-        // updateShownCount(1)
         console.log('gGame.markedCount:', gGame.markedCount)
         console.log('gGame.shownCount:', gGame.shownCount)
         addMines()
@@ -174,24 +171,18 @@ function onCellClicked(elCell, i, j) {
                 var mine = gBoard[i][j]
                 var nigNum = setMinesNegsCount(gBoard, i, j)
                 if (nigNum > 0 && mine.isMine === false) {
-                    //elInCell.classList.add('cellRevile')
                     elInCell.minesAroundCount = nigNum
                     elInCell.innerText = nigNum
                 }
             }
         }
-        // debugger
         updateSecsPassed(1)
-        // updateShownCount(1)
         currCell.isShown = true
         gGame.shownCount += 1
     }
     else if (!currCell.isMine) {
         playSound('pop.wav')
         gGame.shownCount += 1
-        // updateSecsPassed(1)
-        // updateShownCount(1)
-        // currCell.isShown = true
         i = +elCell.dataset.i
         j = +elCell.dataset.j
         colorMinesNegsAround(gBoard, i, j)
@@ -201,17 +192,7 @@ function onCellClicked(elCell, i, j) {
         gGame.shownCount += 1
         gMinesNumbers--
         updateScore(gMinesNumbers)
-        // console.log('gMinesCount:', gMinesCount)
-        // updateShownCount(1)
         currCell.isShown = true
-        // elCell.classList.add('mine')
-        //elCell.innerText = MINE
-        // updateMines(gMinesCount)
-        i = +elCell.dataset.i
-        j = +elCell.dataset.j
-        //colorMinesNegsAround(gBoard, i, j)
-        // checkGameOver()
-        //     return
     }
     checkGameOver()
 }
@@ -231,7 +212,6 @@ function setMinesNegsCount(board, rowIdx, colIdx) {
             currCell.minesAroundCount = count
         }
     }
-    // console.log('gBoard:', gBoard)
     return count
 }
 function colorMinesNegsAround(board, rowIdx, colIdx) {
@@ -270,7 +250,6 @@ function getEmptyCell(board) {
 function addMine(board) {
     var emptyCell = getEmptyCell(board)
     console.log('emptyCell:', emptyCell)
-    // console.log('emptyCell:', emptyCell)
     if (!emptyCell) return
     //model
     board[emptyCell.i][emptyCell.j].isMine = true;
@@ -300,7 +279,6 @@ function getMineCell(board) {
 }
 function removeMine(board) {
     playSound('back.mp3')
-    // for (var i = 0; i < 3; i++) {
     var mineCell = getMineCell(board)
     console.log('mineCell:', mineCell)
     if (!mineCell) return
@@ -331,7 +309,6 @@ function removeMine(board) {
             }
         }
     }
-    //dom
 }
 function removeMines() {
     if (gLevel.mineCell <= 2) {
@@ -440,5 +417,3 @@ clearStorageButton.addEventListener("click", clearLocalStorage);
 if (savedTime !== null) {
     savedTimeElement.textContent = `${savedTime} seconds`;
 }
-var elBtn = document.querySelector('.termin')
-elBtn.style.backgroundImage = "url('img/terminator.jpeg')"

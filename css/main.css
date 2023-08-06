@@ -24,6 +24,7 @@ footer {
 }
 
 .termin {
+    background-image: url('terminator.jpeg');
     border-radius: 20%;
     height: 100px;
     width: 150px;
@@ -31,11 +32,7 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     border:5px solid rgb(76, 10, 10); /* Optional: Remove default button styles */
-  
     cursor: pointer;
-    /* Show cursor as pointer */
-    /* Add any other styling you need */
-
 }
 
 .mine {
@@ -48,7 +45,6 @@ footer {
     height: 40px;
     margin: auto;
     margin-top: 20px;
-    /* border: 4px rgb(30, 30, 29) solid; */
     color: rgb(76, 10, 10);
     font-weight: bold;
     font-style: oblique;
@@ -136,15 +132,6 @@ footer {
     height: 100px;
     border-radius: 20%;
     background-color: rgb(95, 61, 20);
-    /* border: 4px double rgb(5, 5, 5);
-    background: rgb(202, 157, 157);
-    background: rgb(202, 157, 157);
-    width: 170px;
-    height: 50px;
-    border-radius: 7px;
-    margin-bottom: 15PX;
-    font-size: large;
-    font-weight: bold; */
 }
 
 .mines {
@@ -174,7 +161,6 @@ footer {
     height: 90px;
     border-radius: 7px;
 
-    /* border: 1px solid gray; */
 }
 
 .cellRevile {
@@ -182,37 +168,8 @@ footer {
     width: 50px;
     height: 50px;
     border-radius: 7px;
-    /* border: 1px solid gray; */
 }
 
 .marked {
     background: linear-gradient(to top, black, red);
-}
-
-/* .cell:hover {
-    background: linear-gradient(to top,  rgb(203, 175, 175), rgb(247, 242, 242));
-    cursor: po;
-} */
-/* .level {
-    border: 4px double rgb(5, 5, 5);
-    background: rgb(202, 157, 157);
-    width: 170px;
-    height: 50px;
-    border-radius: 7px;
-    margin-bottom: 5PX;
-    font-size: medium;
-    font-weight: bold;
-    font-style: unset;
-} */
-
-.popup {
-    background-color: orange;
-    padding: 20px;
-    position: absolute;
-    right: 0px;
-    top: 20px;
-}
-
-.highlight {
-    background: rgb(201, 225, 217);
 }
